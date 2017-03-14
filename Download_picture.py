@@ -4,12 +4,13 @@ from urllib.parse import urlparse
 import urllib
 import os
 
-url = 'http://avto-nomer.ru/ru/gallery-1'
+url = 'http://avto-nomer.ru/ru/gallery-2'
 
 
 def find(url,i):
-    print(url)
+
     url_request = Request(url,headers = {"User-Agent": 'Chrome/56.0.2924.87'})
+    print(url_request)
     html_doc = urlopen(url_request).read()
     soup = BeautifulSoup(html_doc,'lxml')
     for img in soup.find_all('img'):
@@ -38,5 +39,5 @@ def pages(url):
         url = url[0:len(url)-1] + str(i)
         find(url,count)
 
-find(url,0)
+find(url,11)
 """Сделать выгрузку файлов в ткст файл либо сразу искать те ссылки в которых есть https и их скачивать заодно запилить смену страниц"""
