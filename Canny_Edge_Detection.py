@@ -17,7 +17,8 @@ cars = ['1','2','3','4','5']
     """
 """edges = cv2.
 """
-img = cv2.imread('D:/Python/Diplom/cars/1.png',0)
+#img = cv2.imread('D:/Python/Diplom/cars/1.png',0)
+img = cv2.imread('D:/Python/Diplom/gray.png',0)
 gray = cv2.cvtColor(img,cv2.COLOR_BAYER_BG2GRAY)
 ret, thresh = cv2.threshold(gray,0,255,cv2.THRESH_BINARY_INV+cv2.THRESH_OTSU)
 ed = cv2.Canny(gray,100,200)
