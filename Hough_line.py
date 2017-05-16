@@ -18,7 +18,6 @@ lines = cv2.HoughLinesP(edges, 1, np.pi/180, 20, minLineLength=20, maxLineGap=20
 #print(lines)
 hough = np.zeros(img.shape, np.uint8)
 
-print(tg)
 res = math.degrees(math.atan(tg))
 print(res)
 #1.7899106082460694

@@ -2,6 +2,7 @@ from urllib.request import urlopen
 import cv2
 import math
 import numpy as np
+
 from matplotlib import pyplot as plt
 import os
 import Copy_delete as cop
@@ -28,6 +29,7 @@ def threthholding(path):
     gray = cv2.GaussianBlur(gray, (3, 3), 0);
     ret, th = cv2.threshold(gray, 140, 255, 0)
     return th
+
 def Conver_all_picture(path,path_out):
     lst_fl = os.listdir(path)
     for i in lst_fl:
@@ -41,22 +43,22 @@ def Conver_all_picture(path,path_out):
 def open_picture(img):
     # img = cv2.imread(img)
     cv2.imshow('image', img)
-    cv2.waitKey(0)
-    #print(res)
+    res = cv2.waitKey(0)
+    print(res)
     cv2.destroyAllWindows()
 
-def move_file(path_in,path_out,path_out1,img):
+def move_file(path_out,path_out1,img,i):
     cv2.imshow('image', img)
     res = cv2.waitKey(0)
-    lst = os.listdir(path_in)
     if res == 100:
-        save_picture()
+        save_picture(path_out1, img, i)
         cv2.destroyAllWindows()
     else:
+        save_picture(path_out, img, i)
         cv2.destroyAllWindows()
 
     # print(res)
-    cv2.destroyAllWindows()
+
 
 
 # Показ двух картинок
@@ -112,10 +114,11 @@ def all_cascade(path, OUT):
 if __name__ == '__main__':
 
         #a = Cascade(path)
-       # for i in os.listdir(OUT):
-        #    a = threthholding(path=r"D:\Git_project\VKR\OUPUT_ANOTHER\{0}".format(i))
-        #    open_picture(a)
-        all_cascade(path_res, OUT)
+        for i in os.listdir(OUT):
+            a = threthholding(path=r"D:\Git_project\VKR\OUPUT_ANOTHER\{0}".format(i))
+            move_file(path_out='./THRESHOLD/',path_out1=r'./BAD_THRESHOLD/',idmg=a,i=i)
+         #   open_picture(a)
+        #all_cascade(path_res, OUT)
         # a = Cascade(path)
         # open_picture(roi_color)
 
