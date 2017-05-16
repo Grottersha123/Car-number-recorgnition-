@@ -14,5 +14,6 @@ def picture_digit(path):
             array_one.append(sum(j)/len(j))
             print(j)
     print(len(array_one))
+    print(lol)
 if __name__ == '__main__':
     picture_digit(r'D:\Git_project\VKR\NEW_ROI\0\41.png')
